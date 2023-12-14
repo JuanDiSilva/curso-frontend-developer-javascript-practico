@@ -4,6 +4,7 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
+const cardsContainer = document.querySelector('.cards-container');
 
 
 
@@ -40,7 +41,7 @@ function toggleMobileMenu()
   mobileMenu.classList.toggle('inactive');
 }
 
-//Funcion para poer o quitar el menu de articulos del carrito
+//Funcion para poner o quitar el menu de articulos del carrito
 function toggleCarritoAside()
 {
   //Se niega la condicion inicial para saber si esta abierto el menu
@@ -59,3 +60,60 @@ function toggleCarritoAside()
 
   aside.classList.toggle('inactive');
 }
+
+//Creacion de menu de productos
+const productosList = [];
+productosList.push({
+  nombre: 'Abono Triple 15 Nutrimon',
+  precio: 120,
+  imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productosList.push({
+  nombre: 'Abono R15',
+  precio: 120,
+  imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productosList.push({
+  nombre: 'Veneno Furadan',
+  precio: 120,
+  imagen: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+
+function prestamoProductos(arr){
+  for(productos of arr){
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+  
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', productos.imagen);
+  
+    const productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+  
+    const productInfoDiv = document.createElement('div');
+  
+    const productPrecio = document.createElement('p');
+    productPrecio.innerText = '$' + productos.precio;
+    const productNombre = document.createElement('p');
+    productNombre.innerText = productos.nombre;
+  
+    productInfoDiv.appendChild(productPrecio);
+    productInfoDiv.appendChild(productNombre);
+    
+    const productInfoFigura = document.createElement('figure');
+    const productImgCart = document.createElement('img');
+    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+    
+    productInfoFigura.appendChild(productImgCart);
+  
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productInfoFigura);
+  
+    productCard.appendChild(productImg);
+    productCard.appendChild(productInfo);
+  
+    cardsContainer.appendChild(productCard);
+  }
+}
+
+prestamoProductos(productosList);
