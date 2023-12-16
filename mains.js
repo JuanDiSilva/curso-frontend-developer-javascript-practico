@@ -3,7 +3,7 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoopingCartContainer')
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -18,11 +18,11 @@ menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 //Funcion Para poner o quitar el desktopMenu, classlist permite trabajar con el objeto y .toggle lo activa o inactiva
 function toggleDesktopMenu()
 {
-  const isAsideClosed = aside.classList.contains('inactive');
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   if(!isAsideClosed)
   {
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
 
   desktopMenu.classList.toggle('inactive');
@@ -31,11 +31,11 @@ function toggleDesktopMenu()
 //Funcion Para poner o quitar el Menu Mobile, classlist permite trabajar con el objeto y .toggle lo activa o inactiva
 function toggleMobileMenu()
 {
-  const isAsideClosed = aside.classList.contains('inactive');
+  const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
 
   if(!isAsideClosed)
   {
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
   }
 
   mobileMenu.classList.toggle('inactive');
@@ -48,7 +48,7 @@ function toggleCarritoAside()
   const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
   const isDEsktopMenuClosed = desktopMenu.classList.contains('inactive');
 
-  //aside.classList.toggle('inactive');
+  //shoppingCartContainer.classList.toggle('inactive');
   if(!isMobileMenuClosed)
   {
     mobileMenu.classList.add('inactive');
@@ -58,7 +58,7 @@ function toggleCarritoAside()
     desktopMenu.classList.add('inactive');
   }
 
-  aside.classList.toggle('inactive');
+  shoppingCartContainer.classList.toggle('inactive');
 }
 
 //Creacion de menu de productos
